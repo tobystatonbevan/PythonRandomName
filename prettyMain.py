@@ -1,3 +1,5 @@
+#GUI elements are written by ChatGPT... I feel dirty and ashamed
+
 import tkinter as tk
 
 import random
@@ -35,7 +37,7 @@ root.geometry("600x400")
 
 # Title Label
 title_label = tk.Label(root, text="Gift Pairings", font=("Arial", 52, "bold"))
-title_label.pack(pady=10)
+title_label.pack(pady=20)
 
 # Display Pairings
 for pair in pairings:
