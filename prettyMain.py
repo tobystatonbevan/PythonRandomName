@@ -31,7 +31,7 @@ pairings = finalPairingListOfDicts(allNames,giverName,recipientName)
 # Create the main window
 root = tk.Tk()
 root.title("Gift Exchange")
-root.geometry("300x200")
+root.geometry("600x400")
 
 # Title Label
 title_label = tk.Label(root, text="Gift Pairings", font=("Arial", 14, "bold"))
