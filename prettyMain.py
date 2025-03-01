@@ -34,12 +34,12 @@ root.title("Toolroom Exchange 2025")
 root.geometry("600x400")
 
 # Title Label
-title_label = tk.Label(root, text="Gift Pairings", font=("Arial", 18, "bold"))
+title_label = tk.Label(root, text="Gift Pairings", font=("Arial", 52, "bold"))
 title_label.pack(pady=10)
 
 # Display Pairings
 for pair in pairings:
-    label = tk.Label(root, text=f"{pair['Giver']} is building for {pair['Recipient']}", font=("Arial", 12))
+    label = tk.Label(root, text=f"{pair['Giver']} is building for {pair['Recipient']}", font=("Arial", 18))
     label.pack()
 
 # Run the application
