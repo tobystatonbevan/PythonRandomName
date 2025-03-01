@@ -1,7 +1,7 @@
 import random
 from modules import validityChecker,finalPairingListOfDicts
 #declare all names 
-allNames = ["ERiK","JM","IM","BH","BT","CE","C42","NAE","UT","NBR","AS"]
+allNames = []
 #copy all names to a giver and recipient list
 giverName = allNames.copy()
 recipientName = allNames.copy()
