@@ -32,7 +32,7 @@ pairings = finalPairingListOfDicts(allNames,giverName,recipientName)
 
 # Create the main window
 root = tk.Tk()
-root.title("Toolroom Exchange 2025")
+root.title("Toolroom Exchange 2026")
 root.geometry("600x400")
 
 # Title Label
