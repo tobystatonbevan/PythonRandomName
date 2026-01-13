@@ -1,5 +1,5 @@
-def validityChecker(gName,rName):
-    errors = matchingNameCheck(gName,rName)+directSwapCheck(gName,rName)
+def validityChecker(gName,rName,bPairings):
+    errors = matchingNameCheck(gName,rName)+directSwapCheck(gName,rName)+bannedListCheck(gName,rName,bPairings)
     return errors
 
 def matchingNameCheck(gName,rName):
@@ -26,6 +26,23 @@ def directSwapCheck(gName,rName):
         if pairsDict.get(pairsDict[i]) == i:
             errors += 1
             break
+    return errors
+
+def bannedListCheck(gName,rName,bPairings):
+    #counts errors found in checking
+    errors = 0
+    #declares dictionary
+    pairsDict = {}
+    #creates a dictionary of name pairs for current matchings {giver:recipient}
+    for g,r in zip(gName,rName):
+        pairsDict[g] = r
+    #for each giver name, it checks for the matching value in the current pairing and the banned pairings. If the giver key returns the same value as in the banned list, an error is counted
+    for i in gName:
+        try:
+            if pairsDict[i] == bPairings[i]:
+                errors += 1
+        except:
+            pass
     return errors
 
 def finalPairingListOfDicts(aName,gName,rName):

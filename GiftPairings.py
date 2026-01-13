@@ -3,11 +3,10 @@
 import tkinter as tk
 
 import random
-from modules import validityChecker,finalPairingListOfDicts,userNameInput,bannedPairingInput,listDisplacer
-#declare last year's pairings
-lastYearPairings=[]
-#declares two list variables; one of known returning names and one list of dictionaries which are banned pairings
-returningNames,lastYearPairings = bannedPairingInput()
+from modules import validityChecker,finalPairingListOfDicts,userNameInput,listDisplacer,previousNamesExtraction,pairingLog
+
+#parses csv for returning names and previous pairings
+returningNames,bannedPairings = previousNamesExtraction()
 
 #declare all names  
 allNames = []
@@ -21,24 +20,22 @@ random.shuffle(giverName)
 #displaces the list by one, causing a circular gifting result, and creates a variable called recipientName to hold it
 recipientName = listDisplacer(giverName)
 
-#declare list of final pairing dictionaries with Giver and Recipient keys
-finalPairings = []
 #declares current list as invalid until checks are completed
 invalid = True
 
-#BOOKMARK: continue to work from here. No longer need shuffle, and validation is now based on identifying repeated gifting from last year
-
 while invalid:
-    #shuffles both lists randomly
-    random.shuffle(giverName)
-    random.shuffle(recipientName)
-
     #if no errors have been found, the pairings are deemed valid
-    if validityChecker(giverName,recipientName) == 0:
+    if validityChecker(giverName,recipientName,bannedPairings) == 0:
         invalid = False 
-#call function to create a properly formed dictionary {'Giver':name,'Recipient':name} and sets it to finalPairings variable
+    #randomly shiffles the giverName list
+    random.shuffle(giverName)
+    #displaces the list by one, causing a circular gifting result, and creates a variable called recipientName to hold it
+    recipientName = listDisplacer(giverName)
 
+#call function to create a properly formed dictionary {'Giver':name,'Recipient':name} and sets it to finalPairings variable
 pairings = finalPairingListOfDicts(allNames,giverName,recipientName)
+#creates a csv of results in the data folder
+pairingLog(pairings)
 
 # Create the main window
 root = tk.Tk()
