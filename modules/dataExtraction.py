@@ -11,7 +11,7 @@ def previousNamesExtraction():
     with open(Path.cwd() / "data" / "previous.csv") as preNamefile:
         PreviousNamesFile = csv.DictReader(preNamefile)
         for i in PreviousNamesFile:
-            if int(i["giver_returning"]) == 1:
+            if int(i["giver_returning"]) == 1 and i["giver"] not in returningNames:
                 returningNames.append(i["giver"])
             bannedPairings.update({i["giver"]:i["recipient"]})
     return returningNames,bannedPairings
