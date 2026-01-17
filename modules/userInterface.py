@@ -21,6 +21,7 @@ def userNameInput(knownNames):
             pass
         elif not namer:
             print("Value cannot be empty.")
+            pass
         else:
             nameList.append(namer)
     return nameList
