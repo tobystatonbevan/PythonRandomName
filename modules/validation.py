@@ -38,11 +38,10 @@ def bannedListCheck(gName,rName,bPairings):
         pairsDict[g] = r
     #for each giver name, it checks for the matching value in the current pairing and the banned pairings. If the giver key returns the same value as in the banned list, an error is counted
     for i in gName:
-        try:
+        if i in bPairings:
             if pairsDict[i] == bPairings[i]:
-                errors += 1
-        except:
-            pass
+                    errors += 1
+                    break
     return errors
 
 def finalPairingListOfDicts(aName,gName,rName):

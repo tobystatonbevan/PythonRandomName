@@ -26,7 +26,8 @@ invalid = True
 while invalid:
     #if no errors have been found, the pairings are deemed valid
     if validityChecker(giverName,recipientName,bannedPairings) == 0:
-        invalid = False 
+        invalid = False
+        break
     #randomly shiffles the giverName list
     random.shuffle(giverName)
     #displaces the list by one, causing a circular gifting result, and creates a variable called recipientName to hold it
