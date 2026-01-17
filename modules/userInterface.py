@@ -19,6 +19,8 @@ def userNameInput(knownNames):
         elif namer.replace(" ","").lower() in knownNamesSanitised:
             print("This user is already known\n")
             pass
+        elif not namer:
+            print("Value cannot be empty.")
         else:
             nameList.append(namer)
     return nameList
